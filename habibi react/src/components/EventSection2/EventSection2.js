@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Slide } from "react-awesome-reveal";
 import SectionTitle from '../SectionTitle'
 import sImg1 from '../../images/event/plane.jpg'
 import sImg2 from '../../images/event/train.jpg'
 import sImg3 from '../../images/event/car.avif'
 import PageTitle from '../pagetitle/PageTitle';
+import Navbar from '../../components/Navbar/Navbar';
+
 
 
 const Events = [
@@ -37,6 +39,8 @@ const Events = [
 
 const EventSectionS2 = (props) => {
     return (
+        <Fragment>
+            <Navbar hclass={'wpo-header-style-3'} />
         <section className="wpo-event-section-s2 section-padding pt-0" id="event">
             <PageTitle
                     pageTitle={"Travel"}
@@ -73,6 +77,7 @@ const EventSectionS2 = (props) => {
                 </div>
             </div>
         </section>
+        </Fragment>
     )
 }
 

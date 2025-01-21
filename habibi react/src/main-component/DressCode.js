@@ -11,7 +11,6 @@ const DressCode = () => {
 
     return (
         <Fragment>
-            <Navbar />
             <PortfolioMasonaryPage 
                 pageTitle={DresscodeConstants.pageTitle} 
                 subTitle={DresscodeConstants.subTitle} 

@@ -11,7 +11,7 @@ const AboutTheCouple = () => {
 
     return (
         <Fragment>
-            <Navbar />
+            <Navbar/>
             <CoupleSection2 /> {/*8. About the Couple*/}
             <StorySection2 /> {/*8. About the Couple*/}
             <PortfolioSection /> {/*1. Landing Page*/}

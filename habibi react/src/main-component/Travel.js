@@ -10,7 +10,6 @@ const Travel = () => {
 
     return (
         <Fragment>
-            <Navbar />
             <EventSection2/>
             <Footer />
             <Scrollbar />

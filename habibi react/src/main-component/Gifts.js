@@ -11,7 +11,6 @@ const Gifts = () => {
 
     return (
         <Fragment>
-            <Navbar />
             <PortfolioMasonaryPage 
                 pageTitle={GiftsConstants.pageTitle} 
                 subTitle={GiftsConstants.subTitle} 
