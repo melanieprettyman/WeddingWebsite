@@ -50,7 +50,7 @@ const LocationMap = ({ maxWidth, button, buttonClass }) => {
                 <DialogTitle id="customized-dialog-title" onClose={handleClose}> </DialogTitle>
                 <Grid className="modalBody modal-body">
                     <Grid className="modalBody modal-body">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193595.9147703055!2d-74.11976314309273!3d40.69740344223377!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew+York%2C+NY%2C+USA!5e0!3m2!1sen!2sbd!4v1547528325671"></iframe>
+                        <iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Chateau%20Du%20Val,%2035550%20Saint-Just,%20France+(Ch%C3%A2teau%20du%20Val)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" ></iframe>
                     </Grid>
                 </Grid>
             </Dialog>

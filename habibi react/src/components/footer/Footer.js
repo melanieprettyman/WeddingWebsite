@@ -5,7 +5,7 @@ import shape2 from '../../images/footer-shape-2.svg';
 
 const Footer = (props) => {
     return (
-        <footer className={`wpo-site-footer ${props.footerClass}`}>
+        <footer className={`wpo-site-footer ${props.footerClass}`} >
             <div className="wpo-upper-footer">
                 <div className="container">
                     <div className="row justify-content-center">

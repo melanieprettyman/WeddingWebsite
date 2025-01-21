@@ -16,18 +16,22 @@ import bshape3 from '../../images/story/flower-shape3.svg'
 import bshape4 from '../../images/story/flower-shape4.svg'
 
 
+import Story2019 from '../../images/Story2019.png'
+import Story2023 from '../../images/Story2023.jpg'
+import Story3 from '../../images/Story3.jpg'
+
 
 
 const Storys = [
     {
-        sImg: sImg1,
+        sImg: Story2019,
         shape: shape1,
         title: 'How we meet',
         date: 'March 2019',
         description: 'Mitch and Melanie’s story began five years ago on Pi Day (March 14th), a day dedicated to celebrating the mathematical constant—and, of course, pie! Mitch was hosting a game night in honor of the occasion, and Melanie was invited by a mutual friend. What started as a chance meeting quickly grew into a meaningful friendship. Three months later, they went on their first date.',
     },
     {
-        sImg: sImg2,
+        sImg: Story2023,
         shape: shape2,
         title: ' Building a Life Together',
         date: '2019–Present',
@@ -36,7 +40,7 @@ const Storys = [
         order2: 'order-lg-1 order-2',
     },
     {
-        sImg: sImg3,
+        sImg: Story3,
         shape: shape3,
         title: '',
         date: '',

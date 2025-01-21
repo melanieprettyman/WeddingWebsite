@@ -1,35 +1,35 @@
 import React from 'react'
 import { Slide } from "react-awesome-reveal";
 import SectionTitle from '../SectionTitle'
-import sImg1 from '../../images/event/4.jpg'
-import sImg2 from '../../images/event/5.jpg'
-import sImg3 from '../../images/event/6.jpg'
-import LocationMap from './Modal'
+import sImg1 from '../../images/event/plane.jpg'
+import sImg2 from '../../images/event/train.jpg'
+import sImg3 from '../../images/event/car.avif'
+import PageTitle from '../pagetitle/PageTitle';
 
 
 const Events = [
     {
         Simg: sImg1,
-        title: 'The Reception',
-        li1: 'Monday, 12 Apr. 2023 1:00 PM – 2:30 PM',
-        li2: '4517 Washington Ave. Manchester, Kentucky 39495',
-        li3: '+1 234-567-8910',
+        title: 'By Plane | 2 hours',
+        li1: 'Step 1: Take a domestic flight from Paris to Rennes St. Jacques (RNS) airport. The flight takes approximately 1 hour and costs around $200, depending on availability.',
+        li2: 'Step 2: Rent a car in Rennes and drive to Château du Val. The drive takes about 50 minutes.',
+        //li3: '+1 234-567-8910',
         animation: '1200',
     },
     {
         Simg: sImg2,
-        title: 'The Ceremony',
-        li1: 'Monday, 12 Apr. 2023 1:00 PM – 2:30 PM',
-        li2: '4517 Washington Ave. Manchester, Kentucky 39495',
-        li3: '+1 234-567-8910',
+        title: 'By Train | 2.5 hours',
+        li1: 'Step 1: Take a TGV (high-speed train) from Paris Montparnasse station to Rennes. This journey takes approximately 1.5 hours and costs $20–$70, depending on timing and availability.',
+        li2: 'Step 2 (Option 1): Rent a car in Rennes and drive to Château du Val, which takes about 50 minutes.',
+        li3: 'Step 2 (Option 2): Continue by train and taxi. Take a regional TER train from Rennes to Redon (40 minutes, $10–$20). From Redon, arrange for a taxi or local transport to Château du Val, roughly 16 kilometers (10 miles) away.',
         animation: '1400',
     },
     {
         Simg: sImg3,
-        title: 'The Party',
-        li1: 'Monday, 12 Apr. 2023 1:00 PM – 2:30 PM',
-        li2: '4517 Washington Ave. Manchester, Kentucky 39495',
-        li3: '+1 234-567-8910',
+        title: 'By Car | 4 hours',
+        li1: 'Distance: Approximately 395 kilometers (245 miles).',
+        //li2: '4517 Washington Ave. Manchester, Kentucky 39495',
+        //li3: '+1 234-567-8910',
         animation: '1600',
     },
 
@@ -38,8 +38,12 @@ const Events = [
 const EventSectionS2 = (props) => {
     return (
         <section className="wpo-event-section-s2 section-padding pt-0" id="event">
+            <PageTitle
+                    pageTitle={"Travel"}
+                    pagesub={'Travel'}
+                    content={"Our celebration is at the beautiful Château du Val in Saint-Just! Below are some recommended travel options from Paris to help you plan your journey."}
+                />
             <div className="container">
-                <SectionTitle subTitle={'Our Wedding'} MainTitle={'When & Where'} />
                 <div className="wpo-event-wrap">
                     <div className="row">
                         {Events.map((event, eitem) => (
@@ -59,7 +63,6 @@ const EventSectionS2 = (props) => {
                                                 <li>{event.li1}</li>
                                                 <li>{event.li2}</li>
                                                 <li>{event.li3}</li>
-                                                <li><LocationMap /></li>
                                             </ul>
                                         </div>
                                     </div>

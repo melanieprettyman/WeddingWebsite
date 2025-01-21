@@ -1,17 +1,21 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import banner from '../../images/banner.png';
 
 const PageTitle = (props) => {
+    console.log(`${props.content}`)
     return(
-        <section className="wpo-page-title">
+        <section
+            className="wpo-page-title"
+            style={{
+                backgroundImage: `url(${banner})`,
+            }}
+        >
             <div className="container">
                 <div className="row">
                     <div className="col col-xs-12">
                         <div className="wpo-breadcumb-wrap">
                             <h2>{props.pageTitle}</h2>
-                            <p className="wpo-breadcumb-wrap">
-                                For our wedding, the theme is "Outdo the Bride", and we’re encouraging guests to bring their most show-stopping looks. Think bold, glamorous, and unforgettable—this is your chance to dress to impress and have fun with fashion!
-                            </p>
+                            <p className="wpo-breadcumb-wrap">{props.content}</p>
                         </div>
                     </div>
                 </div>

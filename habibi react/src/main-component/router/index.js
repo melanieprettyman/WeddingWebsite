@@ -63,6 +63,12 @@ import ErrorPage from '../ErrorPage/ErrorPage';
 import LoginPage from '../LoginPage'
 import SignUpPage from '../SignUpPage'
 import ForgotPassword from '../ForgotPassword'
+import AboutTheCouple from '../AboutTheCouple';
+import EventDetails from '../EventDetails';
+import DressCode from '../DressCode';
+import Travel from '../Travel';
+import Accommodations from '../Accommodations';
+import Gifts from '../Gifts';
 
 const AllRoute = () => {
 
@@ -71,6 +77,12 @@ const AllRoute = () => {
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<Homepage />} />
+          <Route path='/about-the-couple' element={<AboutTheCouple />} />
+          <Route path='/event-details' element={<EventDetails />} />
+          <Route path='/dress-code' element={<DressCode />} />
+          <Route path='/travel' element={<Travel />} />
+          <Route path='/accommodations' element={<Accommodations />} />
+          <Route path='/gifts' element={<Gifts />} />
           <Route path='home' element={<Homepage />} />
           <Route path='home-2' element={<HomePage2 />} />
           <Route path='home-3' element={<HomePage3 />} />
@@ -96,7 +108,7 @@ const AllRoute = () => {
           <Route path='story-5' element={<StoryPage5 />} />
           <Route path='story-6' element={<StoryPage6 />} />
           <Route path='accomodation' element={<AccomodationPage />} />
-          <Route path='rsvp' element={<RsvpPage1 />} />
+          <Route path='/rsvp' element={<RsvpPage1 />} />
           <Route path='rsvp-2' element={<RsvpPage2 />} />
           <Route path='rsvp-3' element={<RsvpPage3 />} />
           <Route path='rsvp-4' element={<RsvpPage4 />} />

@@ -1,64 +1,75 @@
-import React from 'react'
+import React from 'react';
 import { Slide } from "react-awesome-reveal";
-import SectionTitle from '../SectionTitle'
-import sImg1 from '../../images/event/1.jpg'
-import sImg2 from '../../images/event/2.jpg'
-import sImg3 from '../../images/event/3.jpg'
-import LocationMap from './Modal'
-
+import SectionTitle from '../SectionTitle';
+import sImg1 from '../../images/venue2.png';
+import LocationMap from './Modal';
 
 const Events = [
     {
         Simg: sImg1,
-        title: 'The Reception',
-        li1: 'Monday, 12 Apr. 2023 1:00 PM – 2:30 PM',
-        li2: '4517 Washington Ave. Manchester, Kentucky 39495',
-        li3: '+1 234-567-8910',
-        animation:'1200',
+        title: 'Event Details',
+        li1: 'Saturday, 13 Sept. 2025',
+        li2: 'To Be Announced (stay tuned for updates!)',
+        li3: 'Château Du Val 35550 Saint-Just, France',
+        animation: '1200',
     },
-    {
-        Simg: sImg2,
-        title: 'The Ceremony',
-        li1: 'Monday, 12 Apr. 2023 1:00 PM – 2:30 PM',
-        li2: '4517 Washington Ave. Manchester, Kentucky 39495',
-        li3: '+1 234-567-8910',
-        animation:'1400',
-    },
-    {
-        Simg: sImg3,
-        title: 'The Party',
-        li1: 'Monday, 12 Apr. 2023 1:00 PM – 2:30 PM',
-        li2: '4517 Washington Ave. Manchester, Kentucky 39495',
-        li3: '+1 234-567-8910',
-        animation:'1600',
-    },
+];
 
-]
-
-const EventSection = (props) => {
+const EventSection = () => {
     return (
         <section className="wpo-event-section section-padding" id="event">
             <div className="container">
                 <SectionTitle subTitle={'Our Wedding'} MainTitle={'When & Where'} />
                 <div className="wpo-event-wrap">
-                    <div className="row">
+                    <div className="row justify-content-center"> {/* Center Content */}
                         {Events.map((event, eitem) => (
-                            <div className="col col-lg-4 col-md-6 col-12" key={eitem}>
+                            <div className="col col-lg-10 col-md-12 col-12" key={eitem}> {/* Adjust column width */}
                                 <Slide direction="up" duration={event.animation} triggerOnce="true">
-                                    <div className="wpo-event-item">
-                                        <div className="wpo-event-img">
-                                            <div className="wpo-event-img-inner">
-                                                <img src={event.Simg} alt="" />
-                                            </div>
+                                    <div
+                                        className="wpo-event-item"
+                                        style={{
+                                            display: "flex",
+                                            flexDirection: "column",
+                                            alignItems: "center",
+                                            textAlign: "center",
+                                        }}
+                                    >
+                                        {/* Event Image */}
+                                        <div
+                                            className="wpo-event-img"
+                                            style={{
+                                                position: "relative",
+                                                width: "300px", // Set the size of the circle
+                                                height: "300px", // Matches the width to make it a circle
+                                                borderRadius: "50%", // Makes the container circular
+                                                overflow: "hidden", // Ensures the image doesn't overflow
+                                                backgroundColor: "#f1f3ee", // Optional background color
+                                            }}
+                                        >
+                                            <img
+                                                src={event.Simg}
+                                                alt=""
+                                                style={{
+                                                    position: "absolute",
+                                                    top: "50%",
+                                                    left: "50%",
+                                                    width: "100%",
+                                                    height: "100%",
+                                                    transform: "translate(-50%, -50%)", // Centers the image
+                                                    objectFit: "cover", // Ensures the image fills the circle
+                                                }}
+                                            />
                                         </div>
+
+                                        {/* Event Text */}
                                         <div className="wpo-event-text">
                                             <div className="title">
                                                 <h2>{event.title}</h2>
                                             </div>
-                                            <ul>
-                                                <li>{event.li1}</li>
-                                                <li>{event.li2}</li>
-                                                <li>{event.li3}</li>
+                                            <ul style={{ listStyle: "none", padding: 0 }}>
+                                                <li><b>Date: </b>{event.li1}</li>
+                                                <li><b>Time: </b>{event.li2}</li>
+                                                <li><b>Location: </b>{event.li3}</li>
                                                 <li><LocationMap /></li>
                                             </ul>
                                         </div>
@@ -70,7 +81,7 @@ const EventSection = (props) => {
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default EventSection;

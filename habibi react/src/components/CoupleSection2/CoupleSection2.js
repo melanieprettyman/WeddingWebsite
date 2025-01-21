@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import coupleImg1 from '../../images/couple/1.jpg'
 import coupleImg2 from '../../images/couple/2.jpg'
 import bg from '../../images/couple/image-bg.svg'
+import { CoupleConstants } from '../../constants';
+import MelaniePhoto from '../../images/Melanie-Photo1.jpeg'
+import MitchPhoto from '../../images/Mitch-Photo1.jpeg'
+
 
 
 const CoupleSection2 = (props) => {
@@ -15,22 +19,16 @@ const CoupleSection2 = (props) => {
                         <div className="col col-md-12 col-12">
                             <div className="couple-item">
                                 <div className="couple-img-wrap">
-                                    <div className="couple-img">
-                                        <img src={coupleImg1} alt="" />
-                                    </div>
+                                <div className="couple-img">
+                                    <img src={MelaniePhoto} alt="" style={{ width: "514px", height: "458px", objectFit: "cover" }} />
+                                </div>
                                     <div className="c-shape">
                                         <img src={bg} alt="" />
                                     </div>
                                 </div>
                                 <div className="couple-text">
-                                    <h3>Melanie Prettyman</h3>
-                                    <p>
-                                        Melanie, 27, was born in Mechanicville, Maryland, and grew up in a large and lively family with nine siblings. She is grateful for her family, including her mother, BillieJo Prettyman, and treasures the memory of her late father, Ronald Prettyman, who passed away in 2022.
-
-                                        Melanie’s academic journey led her to earn a Bachelor’s degree in Biochemistry and a Master’s degree in Software Development, both from the University of Utah. She now works as a Software Engineer for a dynamite company, blending her technical expertise with creativity.
-                                    
-                                        In her free time, Melanie loves hosting themed parties, crocheting intricate designs, and escaping into the magical realms of fantasy novels. Her vibrant personality and knack for bringing people together make her a cherished friend, sister, and partner.
-                                    </p>
+                                    <h3>{CoupleConstants.melanie.name}</h3>
+                                    <p>{CoupleConstants.melanie.about}</p>
                                 </div>
                             </div>
                         </div>
@@ -38,19 +36,15 @@ const CoupleSection2 = (props) => {
                             <div className="couple-item">
                                 <div className="couple-img-wrap">
                                     <div className="couple-img">
-                                        <img src={coupleImg2} alt="" />
+                                        <img src={MitchPhoto} alt="" style={{ width: "514px", height: "458px", objectFit: "cover" }} />
                                     </div>
                                     <div className="c-shape">
                                         <img src={bg} alt="" />
                                     </div>
                                 </div>
                                 <div className="couple-text">
-                                    <h3>Mitch Wopat</h3>
-                                    <p>
-                                    Mitch, 34, grew up in Germantown, Wisconsin, and always had a passion for science and discovery. After earning a Bachelor’s degree in Biochemistry from Stevens Point, he continued his education with a Master’s in Pharmacology at St. John’s University in New York City. He ultimately earned a PhD in Biochemistry from the University of Utah. Today, he works as a Patient Officer for the U.S. Government, combining his love for biochemistry with his commitment to serving others.
-                                    
-                                    When he’s not working, Mitch enjoys video games, painting, and immersing himself in the imaginative worlds of science fiction novels. As the only child of Tanya Weber and James Wopat, Mitch cherishes his close-knit family ties and looks forward to building his future with Melanie.
-                                    </p>
+                                    <h3>{CoupleConstants.mitch.name}</h3>
+                                    <p>{CoupleConstants.mitch.about}</p>
                                 </div>
                             </div>
                         </div>

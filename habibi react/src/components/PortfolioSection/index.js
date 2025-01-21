@@ -1,10 +1,10 @@
 import React from 'react'
-import pImg1 from '../../images/portfolio/1.jpg'
-import pImg2 from '../../images/portfolio/2.jpg'
-import pImg3 from '../../images/portfolio/3.jpg'
-import pImg4 from '../../images/portfolio/4.jpg'
-import pImg5 from '../../images/portfolio/5.jpg'
-import pImg6 from '../../images/portfolio/6.jpg'
+import pImg1 from '../../images/portfolio/PortfolioAjpg.jpg'
+import pImg2 from '../../images/portfolio/PortfolioB.jpeg'
+import pImg3 from '../../images/portfolio/PortfolioC.jpg'
+import pImg4 from '../../images/portfolio/PortfolioD.jpg'
+import pImg5 from '../../images/portfolio/PortfolioE.jpg'
+import pImg6 from '../../images/portfolio/PortfolioF.jpg'
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import Slider from "react-slick";

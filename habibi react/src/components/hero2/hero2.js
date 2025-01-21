@@ -9,6 +9,8 @@ import shape5 from '../../images/slider/shape5.svg'
 import shape6 from '../../images/slider/shape6.svg'
 import bgshape from '../../images/slider/bg-shape.png'
 import TimeCountDown from "../countdown";
+import { HomeConstants } from "../../constants";
+import CoverPhoto from '../../images/CoverPhoto.jpeg'
 
 
 
@@ -28,12 +30,12 @@ const Hero2 = () => {
                                     </div>
                                     <div className="slide-title">
                                         <Slide direction="up" duration="1200" triggerOnce="true">
-                                            <h2>Mitch & Melanie</h2>
+                                            <h2>{HomeConstants.title}</h2>
                                         </Slide>
                                     </div>
                                     <div className="slide-text">
                                         <Slide direction="up" duration="1400" triggerOnce="true">
-                                            <p>We Are Getting Married September 13,2025</p>
+                                            <p>{HomeConstants.subTitle}</p>
                                         </Slide>
                                     </div>
                                     <div className="wpo-wedding-date">
@@ -60,7 +62,7 @@ const Hero2 = () => {
             <div className="static-hero-right">
                 <div className="static-hero-img scene" id="scene">
                     <div className="static-hero-img-inner">
-                        <img src={hero1} alt="" />
+                        <img src={CoverPhoto} alt="" />
                     </div>
                     <div className="static-hero-shape-1">
                         <span className="layer" data-depth="0.25">

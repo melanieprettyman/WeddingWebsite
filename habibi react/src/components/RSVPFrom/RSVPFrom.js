@@ -5,6 +5,7 @@ const RSVPForm = () => {
     const [forms, setForms] = useState({
         name: '',
         email: '',
+        phone: '', // Added phone field
         attending: '',
         plusOne: '',
         plusOneName: '',
@@ -25,6 +26,7 @@ const RSVPForm = () => {
             setForms({
                 name: '',
                 email: '',
+                phone: '', // Clear phone field
                 attending: '',
                 plusOne: '',
                 plusOneName: '',
@@ -63,6 +65,19 @@ const RSVPForm = () => {
                             placeholder="Your Email Address"
                         />
                         {validator.message('email', forms.email, 'required|email')}
+                    </div>
+                </div>
+                <div className="col col-lg-12 col-12"> {/* New Phone Number Field */}
+                    <div className="form-field">
+                        <input
+                            value={forms.phone}
+                            type="tel"
+                            name="phone"
+                            onChange={changeHandler}
+                            className="form-control"
+                            placeholder="Your Phone Number"
+                        />
+                        {validator.message('phone', forms.phone, 'required|phone')}
                     </div>
                 </div>
                 <div className="col col-lg-12 col-12">
