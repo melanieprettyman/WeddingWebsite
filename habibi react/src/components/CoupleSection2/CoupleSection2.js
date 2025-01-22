@@ -1,7 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
-import coupleImg1 from '../../images/couple/1.jpg'
-import coupleImg2 from '../../images/couple/2.jpg'
 import bg from '../../images/couple/image-bg.svg'
 import { CoupleConstants } from '../../constants';
 import MelaniePhoto from '../../images/Melanie-Photo1.jpeg'
@@ -36,7 +33,16 @@ const CoupleSection2 = (props) => {
                             <div className="couple-item">
                                 <div className="couple-img-wrap">
                                     <div className="couple-img">
-                                        <img src={MitchPhoto} alt="" style={{ width: "514px", height: "458px", objectFit: "cover" }} />
+                                    <img 
+                                        src={MitchPhoto} 
+                                        alt="" 
+                                        style={{ 
+                                            width: "100%", 
+                                            maxWidth: "514px", 
+                                            height: "auto", 
+                                            objectFit: "cover" 
+                                        }} 
+                                    />
                                     </div>
                                     <div className="c-shape">
                                         <img src={bg} alt="" />

@@ -2341,6 +2341,9 @@ a.ui-button:active, .ui-button:active,
   }
   .wpo-site-header #navbar .navbar-nav {
     margin: 0;
+    flex-wrap: nowrap;
+    display: flex;
+
   }
 }
 

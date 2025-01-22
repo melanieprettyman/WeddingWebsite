@@ -1,9 +1,6 @@
 import React from 'react'
 import { Zoom } from "react-awesome-reveal";
 import SectionTitle from '../SectionTitle'
-import sImg1 from '../../images/story/1.jpg'
-import sImg2 from '../../images/story/2.jpg'
-import sImg3 from '../../images/story/3.jpg'
 
 import shape1 from '../../images/story/shape.png'
 import shape2 from '../../images/story/shape2.png'

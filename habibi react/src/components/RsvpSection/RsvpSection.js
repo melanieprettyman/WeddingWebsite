@@ -18,7 +18,7 @@ const RsvpSection = (props) => {
                         <div className="wpo-contact-section-wrapper">
                             <div className="wpo-section-title">
                                 <h2>Are You Attending?</h2>
-                                <p><b>RSVP Deadline: </b>May 24th, 2025.</p>
+                                <p><b>RSVP Deadline: </b>May 13, 2025.</p>
                             </div>
                             <div className="wpo-contact-form-area">
                                 <RSVPFrom />

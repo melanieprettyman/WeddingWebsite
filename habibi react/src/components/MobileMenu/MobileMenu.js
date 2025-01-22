@@ -46,6 +46,11 @@ const menus = [
         title: 'About the Couple',
         link: '/about-the-couple',
     },
+    {
+        id: 10,
+        title: 'Gallery',
+        link: '/gallery',
+    },
     
     
     

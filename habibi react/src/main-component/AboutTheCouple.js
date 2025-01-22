@@ -12,9 +12,9 @@ const AboutTheCouple = () => {
     return (
         <Fragment>
             <Navbar/>
-            <CoupleSection2 /> {/*8. About the Couple*/}
-            <StorySection2 /> {/*8. About the Couple*/}
-            <PortfolioSection /> {/*1. Landing Page*/}
+            <CoupleSection2 /> 
+            <StorySection2 /> 
+            <PortfolioSection /> 
             <Footer />
             <Scrollbar />
         </Fragment>

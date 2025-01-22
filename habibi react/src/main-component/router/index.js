@@ -115,7 +115,7 @@ const AllRoute = () => {
           <Route path='rsvp-5' element={<RsvpPage5 />} />
           <Route path='rsvp-6' element={<RsvpPage6 />} />
           <Route path='rsvp-7' element={<RsvpPage7 />} />
-          <Route path='gallery' element={<GalleryPage />} />
+          <Route path='/gallery' element={<GalleryPage />} />
           <Route path='planner' element={<PlannerPage />} />
           <Route path='team-single/:slug' element={<TeamSinglePage />} />
           <Route path='groom-bride' element={<BrideGroomsPage />} />

@@ -23,10 +23,10 @@ const Events = [
         title: 'By Train | 2.5 hours',
         li1: 'Step 1: Take a TGV (high-speed train) from Paris Montparnasse station to Rennes. This journey takes approximately 1.5 hours and costs $20–$70, depending on timing and availability.',
         li2: 'Step 2 (Option 1): Rent a car in Rennes and drive to Château du Val, which takes about 50 minutes.',
-        li3: 'Step 2 (Option 2): Continue by train and taxi. Take a regional TER train from Rennes to Redon (40 minutes, $10–$20). From Redon, arrange for a taxi or local transport to Château du Val, roughly 16 kilometers (10 miles) away.',
+        li3: 'Step 2 (Option 2): Continue by train and taxi. Take a regional TER train from Rennes to Redon (40 minutes, $10–$20). From Redon, arrange for a taxi or car pool to Château du Val, roughly 16 kilometers (10 miles) away.',
         animation: '1400',
     },
-    {
+    { 
         Simg: sImg3,
         title: 'By Car | 4 hours',
         li1: 'Distance: Approximately 395 kilometers (245 miles).',
