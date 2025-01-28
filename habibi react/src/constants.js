@@ -1,3 +1,5 @@
+import venmo from '../src/images/venmo.jpeg'
+
 export const HomeConstants = {
     title: "Mitch & Melanie",
     subTitle: "We Are Getting Married September 13, 2025",
@@ -42,7 +44,10 @@ export const GiftsConstants = {
     subTitle: "Your Love and Support Means Everything",
     content: {
         p1: "We are so grateful for your love and support as we start our life together. Your presence at our celebration is the greatest gift and means the world to us. While we don’t need much in the way of things, if you’d like to help us create unforgettable memories and pursue our dreams for the future, a monetary gift would be a truly thoughtful and cherished contribution.",
-        p2: "You can find us on Venmo: @YourVenmoUsername",
-        p3: "Thank you for helping us create memories that will last a lifetime!"
-    }
+        p2: "Thank you for helping us create memories that will last a lifetime!",
+        p3: "You can find us on Venmo:"
+    },
+    link:'https://venmo.com/code?user_id=2217235863044096897&created=1738029295',
+    linkText:"@melanie-prettyman-1",
+    img:venmo
 };

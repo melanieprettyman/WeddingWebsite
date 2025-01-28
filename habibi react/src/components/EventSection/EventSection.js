@@ -9,8 +9,10 @@ const Events = [
         Simg: sImg1,
         title: 'Event Details',
         li1: 'Saturday, 13 Sept. 2025',
-        li2: 'To Be Announced (stay tuned for updates!)',
-        li3: 'Château Du Val 35550 Saint-Just, France',
+        li2: '4:00 PM',
+        li3: '5:00 PM',
+        li4: '6:30 PM',
+        li5: 'Château Du Val 35550 Saint-Just, France',
         animation: '1200',
     },
 ];
@@ -68,8 +70,10 @@ const EventSection = () => {
                                             </div>
                                             <ul style={{ listStyle: "none", padding: 0 }}>
                                                 <li><b>Date: </b>{event.li1}</li>
-                                                <li><b>Time: </b>{event.li2}</li>
-                                                <li><b>Location: </b>{event.li3}</li>
+                                                <li><b>Ceremony: </b>{event.li2}</li>
+                                                <li><b>Cocktail Hour: </b>{event.li3}</li>
+                                                <li><b>Dinner: </b>{event.li4}</li>
+                                                <li><b>Location: </b>{event.li5}</li>
                                                 <li><LocationMap /></li>
                                             </ul>
                                         </div>

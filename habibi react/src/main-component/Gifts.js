@@ -14,7 +14,10 @@ const Gifts = () => {
             <PortfolioMasonaryPage 
                 pageTitle={GiftsConstants.pageTitle} 
                 subTitle={GiftsConstants.subTitle} 
-                content={GiftsConstants.content} 
+                content={GiftsConstants.content}
+                link={GiftsConstants.link}
+                linkText={GiftsConstants.linkText}
+                img={GiftsConstants.img} 
             />
             <Footer />
             <Scrollbar />

@@ -1,104 +1,106 @@
 import React, { useState } from 'react';
-import SimpleReactValidator from 'simple-react-validator';
 
 const RSVPForm = () => {
     const [forms, setForms] = useState({
         name: '',
         email: '',
-        phone: '', // Added phone field
+        phone: '',
         attending: '',
         plusOne: '',
         plusOneName: '',
         dietaryPreferences: '',
         additionalNotes: '',
     });
-    const [validator] = useState(new SimpleReactValidator({ className: 'errorMessage' }));
 
+    const [validationErrors, setValidationErrors] = useState({});
+
+    // Handler for input changes
     const changeHandler = (e) => {
         setForms({ ...forms, [e.target.name]: e.target.value });
-        validator.showMessageFor(e.target.name);
+
+        // Clear validation error for the current field
+        setValidationErrors((prevErrors) => {
+            const { [e.target.name]: _, ...rest } = prevErrors; // Remove the error for this field
+            return rest;
+        });
     };
 
-    // const submitHandler = async (e) => {
-    //     e.preventDefault();
-    //     if (validator.allValid()) {
-    //         try {
-    //             const response = await fetch(
-    //                 'https://script.google.com/macros/s/AKfycbyFSknyGQwihcTvmlvbVeIdH6UN0giYndbwAt-m5EO5TAmrcD6HAUH1KFUKhB7TDY4E/exec', 
-    //                 {
-    //                     redirect: "follow", // Follow redirects automatically
-    //                     method: "POST",
-    //                     headers: { "Content-Type": "text/plain;charset=utf-8" }, // Prevent CORS preflight
-    //                     body: JSON.stringify(forms), // Convert form data to JSON
-    //                 }
-    //             );
+    const validateForm = () => {
+        const errors = {};
     
-    //             const result = await response.json(); // Parse the response
-    //             console.log('Response:', result); // Log the response for debugging
+        if (!forms.name.trim()) {
+            errors.name = 'Full Name is required.';
+        }
     
-    //             if (response.ok && result.status === "success") {
-    //                 alert("Thank you for your RSVP!");
-    //                 setForms({
-    //                     name: '',
-    //                     email: '',
-    //                     phone: '',
-    //                     attending: '',
-    //                     plusOne: '',
-    //                     plusOneName: '',
-    //                     dietaryPreferences: '',
-    //                     additionalNotes: '',
-    //                 });
-    //             } else {
-    //                 alert(`Error: ${result.message || "There was an error. Please try again."}`);
-    //             }
-    //         } catch (error) {
-    //             console.error("Error submitting RSVP:", error); // Log the error
-    //             alert("Something went wrong. Please try again.");
-    //         }
-    //     } else {
-    //         validator.showMessages();
-    //     }
-    // };
+        if (!forms.email.trim()) {
+            errors.email = 'Email is required.';
+        } else if (!/\S+@\S+\.\S+/.test(forms.email)) {
+            errors.email = 'Please enter a valid email address.';
+        }
+    
+        if (!forms.phone.trim()) {
+            errors.phone = 'Phone number is required.';
+        } else if (!/^\d{10}$/.test(forms.phone)) {
+            errors.phone = 'Phone number must be 10 digits.';
+        }
+    
+        if (!forms.attending) {
+            errors.attending = 'Please select your attendance status.';
+        }
+    
+        if (forms.attending === 'Yes' && !forms.plusOne) {
+            errors.plusOne = 'Please indicate if you will have a plus one.';
+        }
+    
+        if (forms.attending === 'Yes' && forms.plusOne === 'Yes' && !forms.plusOneName.trim()) {
+            errors.plusOneName = 'Please provide the name of your plus one.';
+        }
+    
+        if (forms.dietaryPreferences === '') {
+            errors.dietaryPreferences = 'Please select a dietary preference.';
+        }
+    
+        setValidationErrors(errors);
+    
+        // Return true if no errors
+        return Object.keys(errors).length === 0;
+    };
+    
+
+    // Submit handler
     const submitHandler = async (e) => {
         e.preventDefault();
-        if (validator.allValid()) {
+
+        if (validateForm()) {
             try {
-                // First, send RSVP data to Google Apps Script
+                // Send RSVP data
                 const rsvpResponse = await fetch(
                     'https://script.google.com/macros/s/AKfycbyFSknyGQwihcTvmlvbVeIdH6UN0giYndbwAt-m5EO5TAmrcD6HAUH1KFUKhB7TDY4E/exec',
                     {
-                        redirect: "follow", // Follow redirects automatically
+                        redirect: "follow",
                         method: "POST",
-                        headers: { "Content-Type": "text/plain;charset=utf-8" }, // Prevent CORS preflight
-                        body: JSON.stringify(forms), // Convert form data to JSON
+                        headers: { "Content-Type": "text/plain;charset=utf-8" },
+                        body: JSON.stringify(forms),
                     }
                 );
-    
-                const rsvpResult = await rsvpResponse.json(); // Parse the response from Google Apps Script
+
+                const rsvpResult = await rsvpResponse.json();
                 console.log('RSVP Response:', rsvpResult);
-    
+
                 if (rsvpResponse.ok && rsvpResult.status === "success") {
-                    // Now, send the confirmation email using the second API endpoint
+                    // Send confirmation email
                     const emailResponse = await fetch(
                         'https://6rc9b9qu70.execute-api.us-east-2.amazonaws.com/send',
                         {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
-                            body: JSON.stringify({
-                                name: forms.name,
-                                email: forms.email,
-                                attending: forms.attending,
-                                plusOne: forms.plusOne,
-                                plusOneName: forms.plusOneName,
-                                dietaryPreferences: forms.dietaryPreferences,
-                                additionalNotes: forms.additionalNotes,
-                            }),
+                            body: JSON.stringify(forms),
                         }
                     );
-    
-                    const emailResult = await emailResponse.json(); // Parse the response from the email API
+
+                    const emailResult = await emailResponse.json();
                     console.log('Email Response:', emailResult);
-    
+
                     if (emailResponse.ok) {
                         alert("Thank you for your RSVP! A confirmation email has been sent.");
                     } else {
@@ -108,8 +110,8 @@ const RSVPForm = () => {
                             }`
                         );
                     }
-    
-                    // Clear the form fields
+
+                    // Clear the form
                     setForms({
                         name: '',
                         email: '',
@@ -120,21 +122,18 @@ const RSVPForm = () => {
                         dietaryPreferences: '',
                         additionalNotes: '',
                     });
+
+                    setValidationErrors({});
                 } else {
                     alert(`Error: ${rsvpResult.message || "There was an error submitting your RSVP."}`);
                 }
             } catch (error) {
-                console.error("Error processing RSVP or sending email:", error); // Log the error
+                console.error("Error processing RSVP or sending email:", error);
                 alert("Something went wrong. Please try again.");
             }
-        } else {
-            validator.showMessages();
         }
     };
-    
-    
-    
-    
+
     return (
         <form onSubmit={submitHandler} className="contact-validation-active">
             <div className="row">
@@ -148,7 +147,7 @@ const RSVPForm = () => {
                             className="form-control"
                             placeholder="Your Full Name"
                         />
-                        {validator.message('name', forms.name, 'required|alpha_space')}
+                        {validationErrors.name && <span className="errorMessage">{validationErrors.name}</span>}
                     </div>
                 </div>
                 <div className="col col-lg-12 col-12">
@@ -161,10 +160,10 @@ const RSVPForm = () => {
                             className="form-control"
                             placeholder="Your Email Address"
                         />
-                        {validator.message('email', forms.email, 'required|email')}
+                        {validationErrors.email && <span className="errorMessage">{validationErrors.email}</span>}
                     </div>
                 </div>
-                <div className="col col-lg-12 col-12"> {/* New Phone Number Field */}
+                <div className="col col-lg-12 col-12">
                     <div className="form-field">
                         <input
                             value={forms.phone}
@@ -174,7 +173,7 @@ const RSVPForm = () => {
                             className="form-control"
                             placeholder="Your Phone Number"
                         />
-                        {validator.message('phone', forms.phone, 'required|phone')}
+                        {validationErrors.phone && <span className="errorMessage">{validationErrors.phone}</span>}
                     </div>
                 </div>
                 <div className="col col-lg-12 col-12">
@@ -199,7 +198,7 @@ const RSVPForm = () => {
                             />
                             <label htmlFor="no">No, I can’t come</label>
                         </p>
-                        {validator.message('attending', forms.attending, 'required')}
+                        {validationErrors.attending && <span className="errorMessage">{validationErrors.attending}</span>}
                     </div>
                 </div>
                 {forms.attending === 'Yes' && (
@@ -225,10 +224,12 @@ const RSVPForm = () => {
                                 />
                                 <label htmlFor="plusOneNo">No, I’ll be attending alone</label>
                             </p>
-                            {validator.message('plusOne', forms.plusOne, 'required')}
+                            {validationErrors.plusOne && <span className="errorMessage">{validationErrors.plusOne}</span>}
                         </div>
                     </div>
                 )}
+
+                {/* Plus One's Name Field */}
                 {forms.plusOne === 'Yes' && (
                     <div className="col col-lg-12 col-12">
                         <div className="form-field">
@@ -238,11 +239,15 @@ const RSVPForm = () => {
                                 name="plusOneName"
                                 onChange={changeHandler}
                                 className="form-control"
-                                placeholder="Plus One's Name (Optional)"
+                                placeholder="Plus One's Name"
                             />
+                            {validationErrors.plusOneName && (
+                                <span className="errorMessage">{validationErrors.plusOneName}</span>
+                            )}
                         </div>
                     </div>
                 )}
+
                 <div className="col col-lg-12 col-12">
                     <div className="form-field">
                         <select
@@ -252,12 +257,14 @@ const RSVPForm = () => {
                             name="dietaryPreferences"
                         >
                             <option value="">Dietary Preferences</option>
-                            <option value="Vegetarian">I require vegetarian options</option>
-                            <option value="PlusOneVegetarian">My plus one requires vegetarian options</option>
-                            <option value="PlusOneVegan">My plus one and I require vegetarian options</option>
+                            <option value="Vegetarian-self">I require vegetarian options</option>
+                            <option value="Vegetarian-plus-one">My plus one requires vegetarian options</option>
+                            <option value="Vegetarian-both">Both my plus one and I require vegetarian options</option>
                             <option value="None">None</option>
                         </select>
-                        {validator.message('dietaryPreferences', forms.dietaryPreferences, 'required')}
+                        {validationErrors.dietaryPreferences && (
+                            <span className="errorMessage">{validationErrors.dietaryPreferences}</span>
+                        )}
                     </div>
                 </div>
                 <div className="col col-lg-12 col-12">
@@ -280,5 +287,3 @@ const RSVPForm = () => {
 };
 
 export default RSVPForm;
-
-

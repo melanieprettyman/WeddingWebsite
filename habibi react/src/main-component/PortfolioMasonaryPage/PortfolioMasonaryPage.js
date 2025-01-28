@@ -23,6 +23,18 @@ const PortfolioMasonaryPage = (props) => {
                     {props.content.p3}{' '}
                     <a href={props.link}>{props.linkText}</a>
                 </p>
+                {props.img && (
+                    <img
+                        src={props.img}
+                        alt="Centered Visual"
+                        style={{
+                            width: '20%', // Adjust the size as needed
+                            height: 'auto',
+                            marginBottom: '20px',
+                            borderRadius: '10px', // Optional: Adds rounded corners
+                        }}
+                    />
+                )}
             </div>
         </Fragment>
     );

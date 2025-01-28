@@ -2341,9 +2341,6 @@ a.ui-button:active, .ui-button:active,
   }
   .wpo-site-header #navbar .navbar-nav {
     margin: 0;
-    flex-wrap: nowrap;
-    display: flex;
-
   }
 }
 
@@ -7457,7 +7454,7 @@ a.ui-button:active, .ui-button:active,
 @media (max-width: 767px) {
   .wpo-site-footer .wpo-upper-footer,
   .wpo-site-footer-s2 .wpo-upper-footer {
-    padding: 20px 0 0px 0;
+    padding: 0px 0 0px 0;
   }
 }
 
