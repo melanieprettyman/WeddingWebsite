@@ -2,7 +2,7 @@ import venmo from '../src/images/venmo.jpeg'
 
 export const HomeConstants = {
     title: "Mitch & Melanie",
-    subTitle: "We Are Getting Married September 13, 2025",
+    subTitle: "Are Getting Married September 13, 2025",
 };
 
 export const CoupleConstants = {

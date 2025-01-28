@@ -28,10 +28,12 @@ const PortfolioMasonaryPage = (props) => {
                         src={props.img}
                         alt="Centered Visual"
                         style={{
-                            width: '20%', // Adjust the size as needed
+                            width: '20%',
                             height: 'auto',
                             marginBottom: '20px',
-                            borderRadius: '10px', // Optional: Adds rounded corners
+                            borderRadius: '10px',
+                            maxWidth: '100%',
+                            ...(window.innerWidth <= 768 && { width: '60%' }), // Dynamically adjust width
                         }}
                     />
                 )}

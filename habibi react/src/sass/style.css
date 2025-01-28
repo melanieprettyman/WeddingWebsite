@@ -24455,4 +24455,11 @@ a.ui-button:active, .ui-button:active,
   visibility: visible;
   opacity: 1;
 }
+
+@media (max-width: 768px) {
+  .responsive-image {
+    width: 50% !important; /* Override the inline style for mobile */
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
