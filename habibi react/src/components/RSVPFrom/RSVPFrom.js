@@ -19,25 +19,122 @@ const RSVPForm = () => {
         validator.showMessageFor(e.target.name);
     };
 
-    const submitHandler = (e) => {
+    // const submitHandler = async (e) => {
+    //     e.preventDefault();
+    //     if (validator.allValid()) {
+    //         try {
+    //             const response = await fetch(
+    //                 'https://script.google.com/macros/s/AKfycbyFSknyGQwihcTvmlvbVeIdH6UN0giYndbwAt-m5EO5TAmrcD6HAUH1KFUKhB7TDY4E/exec', 
+    //                 {
+    //                     redirect: "follow", // Follow redirects automatically
+    //                     method: "POST",
+    //                     headers: { "Content-Type": "text/plain;charset=utf-8" }, // Prevent CORS preflight
+    //                     body: JSON.stringify(forms), // Convert form data to JSON
+    //                 }
+    //             );
+    
+    //             const result = await response.json(); // Parse the response
+    //             console.log('Response:', result); // Log the response for debugging
+    
+    //             if (response.ok && result.status === "success") {
+    //                 alert("Thank you for your RSVP!");
+    //                 setForms({
+    //                     name: '',
+    //                     email: '',
+    //                     phone: '',
+    //                     attending: '',
+    //                     plusOne: '',
+    //                     plusOneName: '',
+    //                     dietaryPreferences: '',
+    //                     additionalNotes: '',
+    //                 });
+    //             } else {
+    //                 alert(`Error: ${result.message || "There was an error. Please try again."}`);
+    //             }
+    //         } catch (error) {
+    //             console.error("Error submitting RSVP:", error); // Log the error
+    //             alert("Something went wrong. Please try again.");
+    //         }
+    //     } else {
+    //         validator.showMessages();
+    //     }
+    // };
+    const submitHandler = async (e) => {
         e.preventDefault();
         if (validator.allValid()) {
-            alert('Thank you for your RSVP!');
-            setForms({
-                name: '',
-                email: '',
-                phone: '', // Clear phone field
-                attending: '',
-                plusOne: '',
-                plusOneName: '',
-                dietaryPreferences: '',
-                additionalNotes: '',
-            });
+            try {
+                // First, send RSVP data to Google Apps Script
+                const rsvpResponse = await fetch(
+                    'https://script.google.com/macros/s/AKfycbyFSknyGQwihcTvmlvbVeIdH6UN0giYndbwAt-m5EO5TAmrcD6HAUH1KFUKhB7TDY4E/exec',
+                    {
+                        redirect: "follow", // Follow redirects automatically
+                        method: "POST",
+                        headers: { "Content-Type": "text/plain;charset=utf-8" }, // Prevent CORS preflight
+                        body: JSON.stringify(forms), // Convert form data to JSON
+                    }
+                );
+    
+                const rsvpResult = await rsvpResponse.json(); // Parse the response from Google Apps Script
+                console.log('RSVP Response:', rsvpResult);
+    
+                if (rsvpResponse.ok && rsvpResult.status === "success") {
+                    // Now, send the confirmation email using the second API endpoint
+                    const emailResponse = await fetch(
+                        'https://6rc9b9qu70.execute-api.us-east-2.amazonaws.com/send',
+                        {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                                name: forms.name,
+                                email: forms.email,
+                                attending: forms.attending,
+                                plusOne: forms.plusOne,
+                                plusOneName: forms.plusOneName,
+                                dietaryPreferences: forms.dietaryPreferences,
+                                additionalNotes: forms.additionalNotes,
+                            }),
+                        }
+                    );
+    
+                    const emailResult = await emailResponse.json(); // Parse the response from the email API
+                    console.log('Email Response:', emailResult);
+    
+                    if (emailResponse.ok) {
+                        alert("Thank you for your RSVP! A confirmation email has been sent.");
+                    } else {
+                        alert(
+                            `RSVP was successful, but there was an error sending the confirmation email: ${
+                                emailResult.message || "Please check your email and try again."
+                            }`
+                        );
+                    }
+    
+                    // Clear the form fields
+                    setForms({
+                        name: '',
+                        email: '',
+                        phone: '',
+                        attending: '',
+                        plusOne: '',
+                        plusOneName: '',
+                        dietaryPreferences: '',
+                        additionalNotes: '',
+                    });
+                } else {
+                    alert(`Error: ${rsvpResult.message || "There was an error submitting your RSVP."}`);
+                }
+            } catch (error) {
+                console.error("Error processing RSVP or sending email:", error); // Log the error
+                alert("Something went wrong. Please try again.");
+            }
         } else {
             validator.showMessages();
         }
     };
-
+    
+    
+    
+    
     return (
         <form onSubmit={submitHandler} className="contact-validation-active">
             <div className="row">
@@ -183,3 +280,5 @@ const RSVPForm = () => {
 };
 
 export default RSVPForm;
+
+
