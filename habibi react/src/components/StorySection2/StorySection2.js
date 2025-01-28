@@ -23,7 +23,7 @@ const Storys = [
     {
         sImg: Story2019,
         shape: shape1,
-        title: 'How we meet',
+        title: 'How we met',
         date: 'March 2019',
         description: 'Mitch and Melanie’s story began five years ago on Pi Day (March 14th), a day dedicated to celebrating the mathematical constant—and, of course, pie! Mitch was hosting a game night in honor of the occasion, and Melanie was invited by a mutual friend. What started as a chance meeting quickly grew into a meaningful friendship. Three months later, they went on their first date.',
     },
