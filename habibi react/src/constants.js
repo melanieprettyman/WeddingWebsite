@@ -35,7 +35,7 @@ export const AccommodationsConstants = {
   subTitle: "Plan Your Stay",
   content: {
     p1: "We are thrilled to share that the château will be available for guests to stay from Thursday, September 11th (2:00 PM) to Sunday, September 14th (2:00 PM), 2025, with breakfast included. If you choose to stay at the château, you can enjoy the venue the day before the wedding and throughout the celebration weekend.",
-    p2: "The château will primarily host our family and wedding party. However, there are a limited number of additional beds available for other guests. These beds will be offered on a first-come, first-served basis.",
+    p2: "The château will primarily host our family and wedding party. However, there are a limited number of additional beds available for other guests. These beds will be offered on a first-come, first-served basis. Please note that the château is an adults-only venue. No children are permitted.",
     p3: "To reserve a room at the château, we will provide a reservation spreadsheet where you can find an available bed and add your name to the corresponding spot. Please tune back at the end of May to access the reservation spreadsheet once all RSVPs are finalized.",
   },
   link: "#", // Replace with the actual reservation spreadsheet link
