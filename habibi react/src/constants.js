@@ -92,7 +92,7 @@ export const GiftsConstants = {
   pageTitle: "Gifts",
   subTitle: "Your Love and Support Means Everything",
   content: {
-    p1: "We are so grateful for your love and support as we start our life together. Your presence at our celebration is the greatest gift and means the world to us. While we don’t need much in the way of things, if you’d like to help us create unforgettable memories and pursue our dreams for the future, a monetary gift would be a truly thoughtful and cherished contribution.",
+    p1: "Your presence at our celebration is the greatest gift, and we are so grateful for your love and support as we begin this new chapter together. We truly don’t need much in the way of things, and your well wishes mean the world to us. If you feel inclined to give a gift, a contribution toward our future adventures and dreams would be deeply appreciated—but please know that your love and presence are more than enough for us.",
     p2: "Thank you for helping us create memories that will last a lifetime!",
     p3: "You can find us on Venmo:",
   },
