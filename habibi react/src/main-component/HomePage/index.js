@@ -18,4 +18,3 @@ const HomePage = () => {
 
 export default HomePage;
 
-// <EventSection/> Event Details 

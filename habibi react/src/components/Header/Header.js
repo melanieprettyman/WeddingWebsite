@@ -98,9 +98,9 @@ const Header = (props) => {
                         onClick={ClickHandler}
                         to="/dress-code"
                         style={{
-                            textDecoration: "none",
-                            fontSize: "14px",
-                          }}
+                          textDecoration: "none",
+                          fontSize: "14px",
+                        }}
                       >
                         Dress Code
                       </Link>
@@ -110,9 +110,9 @@ const Header = (props) => {
                         onClick={ClickHandler}
                         to="/travel"
                         style={{
-                            textDecoration: "none",
-                            fontSize: "14px",
-                          }}
+                          textDecoration: "none",
+                          fontSize: "14px",
+                        }}
                       >
                         Travel
                       </Link>
@@ -122,9 +122,9 @@ const Header = (props) => {
                         onClick={ClickHandler}
                         to="/accommodations"
                         style={{
-                            textDecoration: "none",
-                            fontSize: "14px",
-                          }}
+                          textDecoration: "none",
+                          fontSize: "14px",
+                        }}
                       >
                         Accommodations
                       </Link>
@@ -134,9 +134,9 @@ const Header = (props) => {
                         onClick={ClickHandler}
                         to="/gifts"
                         style={{
-                            textDecoration: "none",
-                            fontSize: "14px",
-                          }}
+                          textDecoration: "none",
+                          fontSize: "14px",
+                        }}
                       >
                         Gifts
                       </Link>
@@ -146,9 +146,9 @@ const Header = (props) => {
                         onClick={ClickHandler}
                         to="/about-the-couple"
                         style={{
-                            textDecoration: "none",
-                            fontSize: "14px",
-                          }}
+                          textDecoration: "none",
+                          fontSize: "14px",
+                        }}
                       >
                         About the Couple
                       </Link>
@@ -158,9 +158,9 @@ const Header = (props) => {
                         onClick={ClickHandler}
                         to="/gallery"
                         style={{
-                            textDecoration: "none",
-                            fontSize: "14px",
-                          }}
+                          textDecoration: "none",
+                          fontSize: "14px",
+                        }}
                       >
                         Gallery
                       </Link>
